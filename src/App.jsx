@@ -73,9 +73,12 @@ export default function App() {
     setWaitingForSecond(false);
   };
 
-  const handleClear       = () => { setDisplay("0"); setFirstNum(null); setOperator(null); setWaitingForSecond(false); };
-  const handleToggleSign  = () => setDisplay(String(parseFloat(display) * -1));
-  const handlePercent     = () => setDisplay(String(parseFloat(display) / 100));
+  const handleClear = () => {
+    setDisplay("0");
+    setFirstNum(null);
+    setOperator(null);
+    setWaitingForSecond(false);
+  };
 
   return (
     <div className="wrapper">
@@ -87,40 +90,38 @@ export default function App() {
 
         {/* Row 1 */}
         <div className="row">
-          <CalcButton label="AC"  onClick={handleClear} />
-          <CalcButton label="+/-" onClick={handleToggleSign} />
-          <CalcButton label="%"   onClick={handlePercent} />
-          <CalcButton label="÷"   onClick={() => handleOperator("/")} />
+          <CalcButton label="7" onClick={() => handleNumber("7")} />
+          <CalcButton label="8" onClick={() => handleNumber("8")} />
+          <CalcButton label="9" onClick={() => handleNumber("9")} />
+          <CalcButton label="+" onClick={() => handleOperator("+")} />
         </div>
 
         {/* Row 2 */}
         <div className="row">
-          <CalcButton label="7" onClick={() => handleNumber("7")} />
-          <CalcButton label="8" onClick={() => handleNumber("8")} />
-          <CalcButton label="9" onClick={() => handleNumber("9")} />
-          <CalcButton label="×" onClick={() => handleOperator("*")} />
+          <CalcButton label="4" onClick={() => handleNumber("4")} />
+          <CalcButton label="5" onClick={() => handleNumber("5")} />
+          <CalcButton label="6" onClick={() => handleNumber("6")} />
+          <CalcButton label="-" onClick={() => handleOperator("-")} />
         </div>
 
         {/* Row 3 */}
         <div className="row">
-          <CalcButton label="4" onClick={() => handleNumber("4")} />
-          <CalcButton label="5" onClick={() => handleNumber("5")} />
-          <CalcButton label="6" onClick={() => handleNumber("6")} />
-          <CalcButton label="−" onClick={() => handleOperator("-")} />
+          <CalcButton label="1" onClick={() => handleNumber("1")} />
+          <CalcButton label="2" onClick={() => handleNumber("2")} />
+          <CalcButton label="3" onClick={() => handleNumber("3")} />
+          <CalcButton label="*" onClick={() => handleOperator("*")} />
         </div>
 
         {/* Row 4 */}
         <div className="row">
-          <CalcButton label="1" onClick={() => handleNumber("1")} />
-          <CalcButton label="2" onClick={() => handleNumber("2")} />
-          <CalcButton label="3" onClick={() => handleNumber("3")} />
-          <CalcButton label="+" onClick={() => handleOperator("+")} />
+          <CalcButton label="AC" onClick={handleClear} />
+          <CalcButton label="0"  onClick={() => handleNumber("0")} />
+          <CalcButton label="."  onClick={handleDecimal} />
+          <CalcButton label="/"  onClick={() => handleOperator("/")} />
         </div>
 
-        {/* Row 5 */}
-        <div className="row-last">
-          <CalcButton label="0" onClick={() => handleNumber("0")} />
-          <CalcButton label="." onClick={handleDecimal} />
+        {/* Equals */}
+        <div className="row-equals">
           <CalcButton label="=" onClick={handleEquals} />
         </div>
 
